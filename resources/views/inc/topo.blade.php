@@ -12,7 +12,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-        Laravel
+        Siga Papagaio
                 </a>
             </div>
 

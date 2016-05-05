@@ -19,9 +19,7 @@ Route::group(['middleware' => 'web'], function () {
         return view('auth/login');
     });
 
-    Route::get('/customers', 'CustomerController@index');
-
-    Route::get('/addresses', 'CustomerAddressController@index');
+    Route::resource('customers', 'CustomerController');
 
 
 });
