@@ -11,7 +11,8 @@ class Customer extends Model
     protected $fillable = [
         'name',
         'cnpj',
-        'image'
+        'image',
+        'active'
     ];
 
     protected $table = 'customers';

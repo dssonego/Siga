@@ -137,6 +137,62 @@ a.btn-add:hover{
 }
 /* END TABLE INFORMATION */
 
+/* FORM */
+.form{
+    background:#fff;
+    min-height:200px;
+    margin-top:20px;
+    padding:20px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
+    -webkit-box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
+    -moz-box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
+    border-bottom:2px solid #F4AB07;
+}
+
+.form .input{
+    margin:15px 0;
+}
+
+.form input[type='text'],
+.form select{
+    width:100%;
+    padding:10px;
+    border:1px solid #EEE;
+}
+
+.form input[type='file']{
+    width:100%;
+    border:1px solid #EEE;
+    padding:9px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.form input[type='submit']{
+    width:100%;
+    background:#F4AB07;
+    color:#fff;
+    text-transform: uppercase;
+    border:0;
+    border-bottom:2px solid #C98E05;
+    padding:10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: background-color .5s ease-out;
+    -moz-transition: background-color .5s ease-out;
+    -o-transition: background-color .5s ease-out;
+    transition: background-color .5s ease-out;
+}
+
+.form input[type='submit']:hover{
+    background:#C98E05;
+}
+/* END FORM */
+
+
+
 @media(max-width:767px){
     .mobile-center{
         text-align:center;

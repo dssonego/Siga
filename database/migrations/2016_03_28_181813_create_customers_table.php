@@ -17,6 +17,7 @@ class CreateCustomersTable extends Migration
             $table->string('name');
             $table->string('cnpj');
             $table->string('image');
+            $table->integer('active');
             $table->timestamps();
         });
     }
