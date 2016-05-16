@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="col-sm-6 input">
-                        {{ Form::select('active', ['Ativo', 'Desativo']) }}
+                        {{ Form::select('active', ['Ativo', 'Inativo']) }}
                     </div>
 
                     <div class="col-sm-4 input">

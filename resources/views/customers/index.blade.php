@@ -35,19 +35,24 @@
                     @endforeach
                 </div>
                 <div class="col-sm-2 table-information text-center">
-                    @if($customer->active == 0)
+                    @if($customer->active == 0) <!-- ATIVO -->
                         <img src="{{URL::asset('/img/active.png')}}" alt="Ativo">
                         <p>Ativo</p>
-                    @else
+                    @else <!-- INATIVO -->
                         <img src="{{URL::asset('/img/inactive.png')}}" alt="Inativo">
                         <p>Inativo</p>
                     @endif
                 </div>
+
                 <div class="col-sm-2 table-information text-center">
-                    <a href="#" title="Editar" class="edit border-radius"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+                    {{ Form::open(array('url' => 'customers/' . $customer->id)) }}
+                        {{ Form::hidden('_method', 'DELETE') }}
+                        {{Form::button('<i class="fa fa-trash" aria-hidden="true"></i>  Deletar', array('type' => 'submit', 'class' => 'remove border-radius'))}}
+                    {{ Form::close() }}
                 </div>
+
                 <div class="col-sm-2 table-information text-center">
-                    <a href="#" title="Excluir" class="remove border-radius"><i class="fa fa-trash-o" aria-hidden="true"></i> Excluir</a>
+                    <a href="{{ URL::to('customers/' . $customer->id . '/edit') }}" title="Editar" class="edit border-radius"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
                 </div>
             </div>
         @endforeach

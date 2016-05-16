@@ -104,6 +104,23 @@ a.btn-add:hover{
 
 .information a.edit{
     display:block;
+    background:#F4AB07;
+    color:#fff;
+    margin-top:10px;
+    padding:5px 10px;
+    border-bottom:3px solid #D29506;
+    -webkit-transition: background-color .5s ease-out;
+    -moz-transition: background-color .5s ease-out;
+    -o-transition: background-color .5s ease-out;
+    transition: background-color .5s ease-out;
+}
+
+.information a.edit:hover{
+   background:#D29506;
+}
+
+.information a.active{
+    display:block;
     background:#2FD29B;
     color:#fff;
     margin-top:10px;
@@ -115,14 +132,16 @@ a.btn-add:hover{
     transition: background-color .5s ease-out;
 }
 
-.information a.edit:hover{
-   background:#26B385;
+.information a.active:hover{
+    background:#26B385;
 }
 
-.information a.remove{
+.information button.remove{
     display:block;
+    width:100%;
     background:#EF3A1B;
     color:#fff;
+    border:0;
     margin-top:10px;
     padding:5px 10px;
     border-bottom:3px solid #A7230C;
@@ -132,7 +151,7 @@ a.btn-add:hover{
     transition: background-color .5s ease-out;
 }
 
-.information a.remove:hover{
+.information button.remove:hover{
     background:#A7230C;
 }
 /* END TABLE INFORMATION */
@@ -150,7 +169,8 @@ a.btn-add:hover{
 }
 
 .form .input{
-    margin:15px 0;
+    margin-top:15px;
+    margin-bottom:15px;
 }
 
 .form input[type='text'],
@@ -169,13 +189,13 @@ a.btn-add:hover{
     border-radius: 5px;
 }
 
-.form input[type='submit']{
+.form button.edit{
     width:100%;
-    background:#F4AB07;
+    background:#41C7ED;
     color:#fff;
     text-transform: uppercase;
     border:0;
-    border-bottom:2px solid #C98E05;
+    border-bottom:2px solid #129BC2;
     padding:10px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -186,8 +206,25 @@ a.btn-add:hover{
     transition: background-color .5s ease-out;
 }
 
-.form input[type='submit']:hover{
-    background:#C98E05;
+.form button.edit:hover{
+    background:#129BC2;
+}
+
+.form a.back{
+    display:block;
+    background:#F4AB07;
+    color:#fff;
+    text-transform: uppercase;
+    padding:10px;
+    border-bottom:3px solid #D29506;
+    -webkit-transition: background-color .5s ease-out;
+    -moz-transition: background-color .5s ease-out;
+    -o-transition: background-color .5s ease-out;
+    transition: background-color .5s ease-out;
+}
+
+.form a.back:hover{
+    background:#D29506;
 }
 /* END FORM */
 
