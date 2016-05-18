@@ -21,6 +21,9 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::resource('customers', 'CustomerController');
 
+    //Route::post('customers/{id}/edit', ['as' => 'customers.{id}.edit', 'uses' => 'CustomerContactController@create']);
+    Route::post('customers/{id}/edit','CustomerContactController@create');
+    Route::delete('customers/{id}/edit','CustomerContactController@destroy');
 
 });
 

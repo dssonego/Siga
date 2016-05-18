@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use App\CustomerAddress;
+use App\CustomerContact;
 use Input;
 use Session;
 use Illuminate\Support\Facades\DB;
@@ -45,15 +46,18 @@ class CustomerController extends Controller
         $rules = array(
             'name'       => 'required',
             'cnpj'       => 'required',
-            'image'       => 'required',
-            'active'       => 'required',
             'zipcode'       => 'required',
             'street'       => 'required',
             'neighborhood'       => 'required',
             'city'       => 'required',
             'state'       => 'required',
         );
-        $validator = Validator(\Input::all(), $rules);
+
+        $messages = array(
+            'required' => 'Campo obrigatório!',
+        );
+
+        $validator = Validator(\Input::all(), $rules, $messages);
 
         // process the login
         if ($validator->fails()) {
@@ -66,16 +70,19 @@ class CustomerController extends Controller
             $address = new CustomerAddress;
 
             // upload image
-            $destinationPath = 'img/customers-logo/'; // upload path
-            $extension = \Input::file('image')->getClientOriginalExtension(); // getting image extension
-            $fileName = rand(11111,99999).'.'.$extension; // renameing image
-            \Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
+            if(!empty(\Input::file('image'))):
+                $destinationPath = 'img/customers-logo/'; // upload path
+                $extension = \Input::file('image')->getClientOriginalExtension(); // getting image extension
+                $fileName = rand(11111,99999).'.'.$extension; // renameing image
+                \Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
+            endif;
 
             // save customer
             $customer->name = \Input::get('name');
             $customer->cnpj = \Input::get('cnpj');
-            $customer->image = $fileName;
-            $customer->active = \Input::get('active');
+            if(!empty(\Input::file('image'))):
+                $customer->image = $fileName;
+            endif;
             $customer->save();
 
             // save address
@@ -102,7 +109,7 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -113,15 +120,21 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        // get the customer
+        // first the customer
         $customer = DB::table('customers')
             ->join('customer_addresses', 'customers.id', '=', 'customer_addresses.customer_id')
-            ->where('customers.id',$id)
+            ->where('customers.id', $id)
             ->first();
 
-        // show the edit form and pass the customer
+        // get the contacts
+        $contacts = DB::table('customer_contacts')
+            ->where('customer_contacts.customer_id', $id)
+            ->get();
+
+        // show the edit form and pass the customer and contacts
         return View('customers.edit')
-            ->with('customer', $customer);
+            ->with('customer', $customer)
+            ->with('contacts', $contacts);
     }
 
     /**
@@ -142,7 +155,12 @@ class CustomerController extends Controller
             'city'       => 'required',
             'state'       => 'required',
         );
-        $validator = Validator(\Input::all(), $rules);
+
+        $messages = array(
+            'required' => 'Campo obrigatório!',
+        );
+
+        $validator = Validator(\Input::all(), $rules, $messages);
 
         // process the login
         if ($validator->fails()) {
@@ -201,7 +219,7 @@ class CustomerController extends Controller
         $customer->save();
 
         // redirect
-        Session::flash('message', 'Cliente excluido com sucesso!');
+        Session::flash('message', 'Cliente '.$customer->name.' excluido com sucesso!');
         return Redirect::to('customers');
     }
 

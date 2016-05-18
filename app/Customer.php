@@ -20,4 +20,8 @@ class Customer extends Model
     public function address(){
         return $this->hasMany('App\CustomerAddress');
     }
+
+    public function contact(){
+        return $this->hasMany('App\CustomerContact');
+    }
 }

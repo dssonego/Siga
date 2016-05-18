@@ -16,6 +16,40 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}"/>
 
+    <!-- CEP AUTOMATIC -->
+    <script type='text/javascript' src='http://files.rafaelwendel.com/jquery.js'></script>
+    <script>
+        $(document).ready( function() {
+            /* Executa a requisição quando o campo CEP perder o foco */
+            $('#cep').blur(function(){
+                /* Configura a requisição AJAX */
+                $.ajax({
+                    url : '{{asset('js/cep/consultar_cep.php')}}', /* URL que será chamada */
+                    type : 'POST', /* Tipo da requisição */
+                    data: 'cep=' + $('#cep').val(), /* dado que será enviado via POST */
+                    dataType: 'json', /* Tipo de transmissão */
+                    beforeSend: function(){
+                        $(".carregando").html("<img src='{{asset('img/loading.gif')}}'>");
+                        //$("#carregando").show();
+                    },
+                    success: function(data){
+                        $(".carregando").fadeOut();
+                        if(data.sucesso == 1){
+                            $('#rua').val(data.rua);
+                            $('#bairro').val(data.bairro);
+                            $('#cidade').val(data.cidade);
+                            $('#estado').val(data.estado);
+
+                            $('#numero').focus();
+                        }
+                    }
+                });
+                return false;
+            })
+        });
+    </script>
+    <!-- CEP AUTOMATIC -->
+
 </head>
 <body id="app-layout">
 

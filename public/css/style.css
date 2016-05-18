@@ -21,6 +21,10 @@ p{
     margin:0;
 }
 
+i.fa{
+    margin-right:5px;
+}
+
 .btn-primary{
     background:#14B9D5;
     border-color:#14B9D5;
@@ -51,13 +55,13 @@ a:hover{
     border-radius: 5px;
 }
 
-/* TABLE INFORMATION */
+/* BUTTONS */
 a.btn-add{
-    float:right;
-    background:#41C7ED;
+    display:block;
+    background:#2FD29B;
     color:#fff;
     padding:5px 30px;
-    border-bottom:3px solid #129BC2;
+    border-bottom:3px solid #26B385;
     margin-bottom:20px;
     -webkit-transition: background-color .5s ease-out;
     -moz-transition: background-color .5s ease-out;
@@ -66,9 +70,84 @@ a.btn-add{
 }
 
 a.btn-add:hover{
-   background:#129BC2;
+    background:#26B385;
 }
 
+a.edit{
+    display:block;
+    background:#41C7ED;
+    color:#fff;
+    margin-top:10px;
+    padding:5px 10px;
+    border-bottom:3px solid #129BC2;
+    -webkit-transition: background-color .5s ease-out;
+    -moz-transition: background-color .5s ease-out;
+    -o-transition: background-color .5s ease-out;
+    transition: background-color .5s ease-out;
+}
+
+a.edit:hover{
+    background:#129BC2;
+}
+
+button.remove{
+    display:block;
+    width:100%;
+    background:#EF3A1B;
+    color:#fff;
+    border:0;
+    margin-top:10px;
+    padding:5px 10px;
+    border-bottom:3px solid #A7230C;
+    -webkit-transition: background-color .5s ease-out;
+    -moz-transition: background-color .5s ease-out;
+    -o-transition: background-color .5s ease-out;
+    transition: background-color .5s ease-out;
+}
+
+button.remove:hover{
+    background:#A7230C;
+}
+
+button.edit{
+    width:100%;
+    background:#41C7ED;
+    color:#fff;
+    border:0;
+    border-bottom:2px solid #129BC2;
+    padding:5px 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: background-color .5s ease-out;
+    -moz-transition: background-color .5s ease-out;
+    -o-transition: background-color .5s ease-out;
+    transition: background-color .5s ease-out;
+}
+
+button.edit:hover{
+    background:#129BC2;
+}
+
+a.back{
+    display:block;
+    background:#F4AB07;
+    color:#fff;
+    padding:5px 10px;
+    border-bottom:3px solid #D29506;
+    -webkit-transition: background-color .5s ease-out;
+    -moz-transition: background-color .5s ease-out;
+    -o-transition: background-color .5s ease-out;
+    transition: background-color .5s ease-out;
+}
+
+a.back:hover{
+    background:#D29506;
+}
+
+/* BUTTONS */
+
+/* TABLE INFORMATION */
 .information{
     background:#fff;
     padding:25px 15px 25px 60px;
@@ -101,86 +180,65 @@ a.btn-add:hover{
     color:#41C7ED;
     margin:0;
 }
-
-.information a.edit{
-    display:block;
-    background:#F4AB07;
-    color:#fff;
-    margin-top:10px;
-    padding:5px 10px;
-    border-bottom:3px solid #D29506;
-    -webkit-transition: background-color .5s ease-out;
-    -moz-transition: background-color .5s ease-out;
-    -o-transition: background-color .5s ease-out;
-    transition: background-color .5s ease-out;
-}
-
-.information a.edit:hover{
-   background:#D29506;
-}
-
-.information a.active{
-    display:block;
-    background:#2FD29B;
-    color:#fff;
-    margin-top:10px;
-    padding:5px 10px;
-    border-bottom:3px solid #26B385;
-    -webkit-transition: background-color .5s ease-out;
-    -moz-transition: background-color .5s ease-out;
-    -o-transition: background-color .5s ease-out;
-    transition: background-color .5s ease-out;
-}
-
-.information a.active:hover{
-    background:#26B385;
-}
-
-.information button.remove{
-    display:block;
-    width:100%;
-    background:#EF3A1B;
-    color:#fff;
-    border:0;
-    margin-top:10px;
-    padding:5px 10px;
-    border-bottom:3px solid #A7230C;
-    -webkit-transition: background-color .5s ease-out;
-    -moz-transition: background-color .5s ease-out;
-    -o-transition: background-color .5s ease-out;
-    transition: background-color .5s ease-out;
-}
-
-.information button.remove:hover{
-    background:#A7230C;
-}
 /* END TABLE INFORMATION */
 
-/* FORM */
-.form{
-    background:#fff;
-    min-height:200px;
+/* block */
+.block{
     margin-top:20px;
-    padding:20px;
+}
+
+.block .header-block{
+    padding:15px;
+    text-align:center;
+    left:0;
+    top:0;
+    background:#41C7ED;
+    border-bottom:2px solid #129BC2;
+}
+
+.block .header-block h1{
+    font-size:18px;
+    color:#fff;
+    margin:0;
+}
+
+.block .content-block{
+    float:left;
+    width:100%;
+    background:#fff;
+    padding:15px 0px;
+    border-bottom:2px solid #F4AB07;
     box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
     -webkit-box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
     -moz-box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
-    border-bottom:2px solid #F4AB07;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
-.form .input{
+.block p.help-block{
+    position:absolute;
+    font-size:12px;
+    font-weight: 400;
+    color:red;
+}
+
+.block .input{
     margin-top:15px;
     margin-bottom:15px;
 }
 
-.form input[type='text'],
-.form select{
+.block input[type='text'],
+.block select{
     width:100%;
     padding:10px;
     border:1px solid #EEE;
 }
 
-.form input[type='file']{
+.block input[type='file']{
     width:100%;
     border:1px solid #EEE;
     padding:9px;
@@ -189,46 +247,14 @@ a.btn-add:hover{
     border-radius: 5px;
 }
 
-.form button.edit{
+.block .table{
+    float:left;
     width:100%;
-    background:#41C7ED;
-    color:#fff;
-    text-transform: uppercase;
-    border:0;
-    border-bottom:2px solid #129BC2;
-    padding:10px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-transition: background-color .5s ease-out;
-    -moz-transition: background-color .5s ease-out;
-    -o-transition: background-color .5s ease-out;
-    transition: background-color .5s ease-out;
+    margin-bottom:10px;
+    padding-bottom:10px;
+    border-bottom:1px solid #eee;
 }
-
-.form button.edit:hover{
-    background:#129BC2;
-}
-
-.form a.back{
-    display:block;
-    background:#F4AB07;
-    color:#fff;
-    text-transform: uppercase;
-    padding:10px;
-    border-bottom:3px solid #D29506;
-    -webkit-transition: background-color .5s ease-out;
-    -moz-transition: background-color .5s ease-out;
-    -o-transition: background-color .5s ease-out;
-    transition: background-color .5s ease-out;
-}
-
-.form a.back:hover{
-    background:#D29506;
-}
-/* END FORM */
-
-
+/* END block */
 
 @media(max-width:767px){
     .mobile-center{

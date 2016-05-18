@@ -21,8 +21,11 @@
 
         @foreach ($customers as $customer)
             <div class="col-sm-12 customers information mobile-center border-radius">
-                <div class="image" style="background:url({{URL::asset('img/customers-logo/'.$customer->image)}});">
-
+                @if(!empty($customer->image))
+                    <div class="image" style="background:url({{URL::asset('img/customers-logo/'.$customer->image)}});">
+                @else
+                    <div class="image" style="background:url({{URL::asset('img/customers-logo/anonimo.png')}});">
+                @endif
                 </div>
                 <div class="col-sm-3 table-information">
                     <h1>{{ $customer->name }}</h1>
