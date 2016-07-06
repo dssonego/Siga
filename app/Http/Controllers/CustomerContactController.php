@@ -27,7 +27,7 @@ class CustomerContactController extends Controller
         $customer_contact->save();
 
         Session::flash('message', 'Contato cadastrado com sucesso!');
-        return Redirect::to('customers/'.$id.'/edit');
+        return Redirect::to('customers/'.$id.'');
 
     }
 

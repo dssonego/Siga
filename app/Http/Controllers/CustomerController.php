@@ -22,16 +22,34 @@ class CustomerController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        //$customers = Customer::with('address')->paginate(10);
-        $customers = Customer::with('address')
-            ->where('customers.active', 0)
-            ->paginate(10);
+        $search = $request->get('search');
 
-        return View('customers.index', array(
-            'customers' => $customers
-        ));
+        if(!empty($search)):
+            $customers = Customer::with('address')
+                ->where('customers.name', 'like', "%$search%")
+                ->orWhere('customers.cnpj', 'like', "%$search%")
+                ->where('customers.active', 0)
+                ->paginate(10)
+                ->appends(['search' => $search]);
+        else:
+            $customers = Customer::with('address')
+                ->where('customers.active', 0)
+                ->paginate(10);
+        endif;
+
+        $countcustomers = count($customers);
+
+        //$customers = Customer::with('address')->paginate(10);
+        //$customers = Customer::with('address')
+            //->where('customers.active', 0)
+            //->paginate(10);
+
+        return View('customers.index')
+            ->with('customers', $customers)
+            ->with('search', $search)
+            ->with('countcustomers', $countcustomers);
     }
 
     public function create()
@@ -41,6 +59,9 @@ class CustomerController extends Controller
 
     public function store()
     {
+
+        date_default_timezone_set('America/Sao_Paulo');
+
         // validate
         // read more on validation at http://laravel.com/docs/validation
         $rules = array(
@@ -109,7 +130,19 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
+        // first the customer
+        $customer = Customer::with('address')
+            ->where('customers.id', $id)
+            ->first();
 
+        // get the contacts
+        $contacts = CustomerContact::where('customer_contacts.customer_id',$id)
+            ->get();
+
+        // show the edit form and pass the customer and contacts
+        return View('customers.show')
+            ->with('customer', $customer)
+            ->with('contacts', $contacts);
     }
 
     /**
@@ -121,20 +154,13 @@ class CustomerController extends Controller
     public function edit($id)
     {
         // first the customer
-        $customer = DB::table('customers')
-            ->join('customer_addresses', 'customers.id', '=', 'customer_addresses.customer_id')
+        $customer = Customer::join('customer_addresses', 'customers.id', '=', 'customer_addresses.customer_id')
             ->where('customers.id', $id)
             ->first();
 
-        // get the contacts
-        $contacts = DB::table('customer_contacts')
-            ->where('customer_contacts.customer_id', $id)
-            ->get();
-
         // show the edit form and pass the customer and contacts
         return View('customers.edit')
-            ->with('customer', $customer)
-            ->with('contacts', $contacts);
+            ->with('customer', $customer);
     }
 
     /**
@@ -145,6 +171,9 @@ class CustomerController extends Controller
      */
     public function update($id)
     {
+
+        date_default_timezone_set('America/Sao_Paulo');
+
         //
         $rules = array(
             'name'       => 'required',

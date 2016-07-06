@@ -16,6 +16,10 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}"/>
 
+    <!-- datepicker -->
+    <link href="{{asset('css/datepicker/datepicker.css')}}" rel="stylesheet">
+    <!-- datepicker -->
+
     <!-- CEP AUTOMATIC -->
     <script type='text/javascript' src='http://files.rafaelwendel.com/jquery.js'></script>
     <script>
@@ -50,14 +54,55 @@
     </script>
     <!-- CEP AUTOMATIC -->
 
+    <!-- mascara formularios -->
+    <script src="{{asset('js/mask/jquery.maskedinput.js')}}" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        jQuery(function($){
+            $("#phone").mask("(99)99999999?9");
+            $("#cell").mask("(99)99999999?9");
+            $("#cep").mask("99999?9999");
+            $("#hour").mask("99:99");
+        });
+    </script>
+    <!-- mascara formularios -->
+
+
+    <!-- click pesquisa jobs -->
+    <script>
+        $(document).ready( function() {
+            $( "#pesquisa" ).click(function() {
+                $('.search-jobs').slideToggle( "slow" );
+            });
+        });
+    </script>
+    <!-- click pesquisa jobs -->
+
 </head>
 <body id="app-layout">
 
     @yield('content')
 
+
+
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
+    <!-- datepicker -->
+    <script src="{{asset('js/datepicker/bootstrap-datepicker.js')}}"></script>
+    <script>
+
+        $(function(){
+            window.prettyPrint && prettyPrint();
+            $('#dp1').datepicker({
+                format: 'yyyy-mm-dd'
+            });
+        });
+
+    </script>
+    <!-- datepicker -->
+
 </body>
 </html>

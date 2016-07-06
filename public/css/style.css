@@ -21,9 +21,25 @@ p{
     margin:0;
 }
 
+.mt{
+    margin-bottom:10px;
+}
+
 i.fa{
     margin-right:5px;
 }
+
+.count p{
+    font-size:16px;
+    font-weight:700;
+}
+
+.count p a.clear-search,
+.count p a.clear-search:hover{
+    color:#F4AB07 !important;
+    font-weight:400;
+}
+
 
 .btn-primary{
     background:#14B9D5;
@@ -55,29 +71,47 @@ a:hover{
     border-radius: 5px;
 }
 
+input.search{
+    padding:6px;
+    width: 100%;
+    border: 1px solid #EEE;
+}
+
+@media(max-width:767px){
+    .mobile-center{
+        text-align:center;
+    }
+
+    input.search{
+        margin-top:5px;
+    }
+}
+/* END ALL */
+
 /* BUTTONS */
-a.btn-add{
+a.btn-green{
     display:block;
     background:#2FD29B;
     color:#fff;
     padding:5px 30px;
     border-bottom:3px solid #26B385;
-    margin-bottom:20px;
     -webkit-transition: background-color .5s ease-out;
     -moz-transition: background-color .5s ease-out;
     -o-transition: background-color .5s ease-out;
     transition: background-color .5s ease-out;
 }
 
-a.btn-add:hover{
+a.btn-green:hover{
     background:#26B385;
 }
 
-a.edit{
+a.btn-blue,
+button.btn-blue{
     display:block;
+    width:100%;
     background:#41C7ED;
-    color:#fff;
-    margin-top:10px;
+    color:#fff !important;
+    border:0;
     padding:5px 10px;
     border-bottom:3px solid #129BC2;
     -webkit-transition: background-color .5s ease-out;
@@ -86,11 +120,12 @@ a.edit{
     transition: background-color .5s ease-out;
 }
 
-a.edit:hover{
+a.btn-blue:hover,
+button.btn-blue:hover{
     background:#129BC2;
 }
 
-button.remove{
+button.btn-red{
     display:block;
     width:100%;
     background:#EF3A1B;
@@ -105,31 +140,11 @@ button.remove{
     transition: background-color .5s ease-out;
 }
 
-button.remove:hover{
+button.btn-red:hover{
     background:#A7230C;
 }
 
-button.edit{
-    width:100%;
-    background:#41C7ED;
-    color:#fff;
-    border:0;
-    border-bottom:2px solid #129BC2;
-    padding:5px 10px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-transition: background-color .5s ease-out;
-    -moz-transition: background-color .5s ease-out;
-    -o-transition: background-color .5s ease-out;
-    transition: background-color .5s ease-out;
-}
-
-button.edit:hover{
-    background:#129BC2;
-}
-
-a.back{
+a.btn-orange{
     display:block;
     background:#F4AB07;
     color:#fff;
@@ -141,22 +156,97 @@ a.back{
     transition: background-color .5s ease-out;
 }
 
-a.back:hover{
+a.btn-orange:hover{
     background:#D29506;
 }
 
 /* BUTTONS */
 
 /* TABLE INFORMATION */
+a.div-link,
+a.div-link:hover{
+    color:#333 !important;
+}
+
+.table-header{
+    margin-top:15px;
+    padding:15px;
+    background:#41C7ED;
+}
+
+.table-header p{
+    color:#fff;
+}
+
 .information{
     background:#fff;
-    padding:25px 15px 25px 60px;
-    margin-bottom:20px;
+    margin-top:15px;
+    margin-bottom:15px;
     box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
     -webkit-box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
     -moz-box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
     border-bottom:2px solid #F4AB07;
 }
+
+/* CUSTOMERS */
+.customers.information{
+    padding:25px 15px 25px 60px;
+}
+/* CUSTOMERS */
+
+/* JOBS */
+.search-jobs{
+    display:none;
+    background:#fff;
+    margin-top:15px;
+    padding:29px 15px 10px 15px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
+    -webkit-box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
+    -moz-box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
+    border-bottom:2px solid #F4AB07;
+}
+
+.search-jobs .input input[type="text"],
+.search-jobs .input select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #EEE;
+}
+
+.jobs.information{
+    padding:15px;
+    margin-bottom:0px;
+    margin-top:0px;
+    border-bottom:2px solid #eee;
+}
+
+.jobs.information .yes-deadline{
+    position:absolute;
+    left: -18px;
+    top: 8px;
+    background:#26B385;
+    padding:10px 5px 10px 11px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+}
+
+.jobs.information .no-deadline{
+    position:absolute;
+    left: -18px;
+    top: 8px;
+    background:#EF3A1B;
+    padding:10px 5px 10px 11px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+}
+
+.jobs.information .yes-deadline i,
+.jobs.information .no-deadline i{
+    color:#fff;
+}
+/* JOBS */
 
 .information .image{
     position:absolute;
@@ -180,18 +270,36 @@ a.back:hover{
     color:#41C7ED;
     margin:0;
 }
+
+@media(max-width:767px){
+    .table-header{
+        display:none;
+    }
+
+    .information{
+        padding:105px 15px 25px 15px;
+    }
+
+    .information .border-bottom{
+        border-bottom:1px solid #eee;
+        margin-bottom:10px;
+        padding-bottom:10px;
+    }
+
+    .information .image{
+        left:50%;
+        margin-left:-40px;
+    }
+}
 /* END TABLE INFORMATION */
 
 /* block */
-.block{
-    margin-top:20px;
-}
 
 .block .header-block{
+    float:left;
+    width:100%;
     padding:15px;
     text-align:center;
-    left:0;
-    top:0;
     background:#41C7ED;
     border-bottom:2px solid #129BC2;
 }
@@ -206,7 +314,8 @@ a.back:hover{
     float:left;
     width:100%;
     background:#fff;
-    padding:15px 0px;
+    padding:15px;
+    margin-bottom:20px;
     border-bottom:2px solid #F4AB07;
     box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
     -webkit-box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
@@ -227,11 +336,21 @@ a.back:hover{
 }
 
 .block .input{
-    margin-top:15px;
-    margin-bottom:15px;
+    margin-top:10px;
+    margin-bottom:10px;
 }
 
+.block .input strong{
+    float: left;
+    width:100%;
+    color: #333;
+    font-size: 14px;
+    padding-bottom: 4px;
+}
+
+
 .block input[type='text'],
+.block textarea,
 .block select{
     width:100%;
     padding:10px;
@@ -248,20 +367,23 @@ a.back:hover{
 }
 
 .block .table{
-    float:left;
-    width:100%;
     margin-bottom:10px;
     padding-bottom:10px;
     border-bottom:1px solid #eee;
 }
+
+/* JOBS BRIEFING */
+.job_briefing_old{
+    background:#F7F7F7;
+    border:1px solid #eee;
+    margin:5px 0;
+    padding:10px;
+}
+/* JOBS BRIEFING*/
+
+
 /* END block */
 
-@media(max-width:767px){
-    .mobile-center{
-        text-align:center;
-    }
-}
-/* END ALL*/
 
 /* LOGIN */
 .panel-default{

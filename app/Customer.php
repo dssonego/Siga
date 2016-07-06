@@ -24,4 +24,8 @@ class Customer extends Model
     public function contact(){
         return $this->hasMany('App\CustomerContact');
     }
+
+    public function job(){
+        return $this->belongsTo('App\Job');
+    }
 }

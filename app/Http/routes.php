@@ -25,6 +25,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('customers/{id}/edit','CustomerContactController@create');
     Route::delete('customers/{id}/edit','CustomerContactController@destroy');
 
+    Route::resource('jobs', 'JobController');
+    Route::post('jobs/alterjob/{id}','JobController@alterJob');
+
 });
 
 
